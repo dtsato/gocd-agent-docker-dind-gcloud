@@ -1,6 +1,8 @@
 FROM gocd/gocd-agent-docker-dind:v19.9.0
 MAINTAINER Danilo Sato <dtsato@gmail.com>
 
+USER root
+
 RUN \
   apk add --update make ca-certificates openssl python && \
   update-ca-certificates && \
@@ -9,5 +11,7 @@ RUN \
   ./google-cloud-sdk/install.sh --usage-reporting=false && \
   ./google-cloud-sdk/bin/gcloud --quiet components update && \
   rm -f google-cloud-sdk.tar.gz
+
+USER go
 
 ENV PATH $PATH:/google-cloud-sdk/bin
