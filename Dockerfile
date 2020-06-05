@@ -1,4 +1,4 @@
-FROM gocd/gocd-agent-docker-dind:v19.11.0
+FROM gocd/gocd-agent-docker-dind:v20.4.0
 MAINTAINER Danilo Sato <dtsato@gmail.com>
 
 USER root
